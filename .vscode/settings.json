@@ -1,0 +1,8 @@
+{
+    "chat.tools.terminal.autoApprove": {
+        "/^cd \"/Users/amreshverma/Documents/Machine Learning/latent_liquidity_quant\" && python data_pipeline/features\\.py$/": {
+            "approve": true,
+            "matchCommandLine": true
+        }
+    }
+}

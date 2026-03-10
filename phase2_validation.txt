@@ -1,0 +1,52 @@
+INFO:models.finance_state_space:Initialized FinanceStateSpaceModel with state_dim=3, obs_dim=6
+======================================================================
+PHASE 2 VALIDATION - FINAL CHECKS
+======================================================================
+
+1. Testing likelihood with extreme states...
+   State [ 0.50, -2.00, -1.00]: ✓ LL=  -29.16
+   State [ 0.50, -1.50, -0.80]: ✓ LL=  -26.17
+   State [ 0.00, -0.50,  0.00]: ✓ LL=    6.02
+   State [-0.50,  0.20,  0.50]: ✓ LL=    3.25
+
+2. Testing with real data (50 observations)...
+   Processed 50 observations: NaN steps=0, Inf steps=0
+   ✓ All observations processed successfully
+
+======================================================================
+✅ PHASE 2 COMPLETE AND VALIDATED
+======================================================================
+
+📋 IMPLEMENTED COMPONENTS:
+  ✓ State vector: x_t = [L_t, h_t, z_t]
+    - L_t: Latent liquidity factor
+    - h_t: Log volatility
+    - z_t: Correlation state (pre-tanh)
+
+  ✓ Transition function (vectorized):
+    - L_next = φ_L·L + β_L·exp(h/2) + ε_L
+    - h_next = μ_h + φ_h·(h - μ_h) + ε_h
+    - z_next = φ_z·z + γ·L + ε_z
+
+  ✓ Return covariance matrix:
+    - σ = exp(h/2)  [volatility]
+    - ρ = tanh(z)   [correlation]
+    - Σ = σ²·R(ρ)   [3×3 covariance]
+
+  ✓ Observation likelihoods:
+    - Returns: [r_SPY, r_TLT, r_HYG] ~ N(0, Σ)
+    - VIX: VIX ~ N(a_vix + b_vix·σ, σ²_vix)
+    - Spread: Spread ~ N(a_spread + b_spread·L, σ²_spread)
+    - Correlation: Corr ~ N(a_corr + b_corr·ρ, σ²_corr)
+
+  ✓ Numerical stability features:
+    - Positive definite covariance matrix checks
+    - Automatic adjustment for near-singular matrices
+    - NaN/Inf detection and handling
+    - Clamped correlation bounds [-0.99, 0.99]
+    - Stable log-determinant computation
+
+  ✓ Vectorized computation:
+    - All transitions support multiple particles
+    - Efficient parallel likelihood computation
+    - Ready for particle filtering
