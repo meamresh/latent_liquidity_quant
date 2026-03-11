@@ -1,8 +1,12 @@
 # Latent Liquidity & Systemic Risk Quantification
 
-![Risk Evolution](results/vanguard_risk_evolution.gif)
+🌐 [Interactive Portfolio](https://meamresh.github.io/latent-liquidity.html) • 📊 [Research Visualizations](results/) • 📄 [Notebook Analysis](notebooks/)
 
-This repository implements a non-linear State-Space Model (SSM) and advanced Bayesian filtering framework to infer latent liquidity stress ($L_t$) and quantify systemic risk transitions in global financial markets.
+<p align="center">
+  <img src="results/vanguard_risk_evolution.gif" width="700">
+</p>
+
+This repository implements a non-linear State-Space Model (SSM) and an advanced Bayesian filtering framework to infer latent liquidity stress ($L_t$) and quantify systemic risk transitions in global financial markets.
 
 ## Key Features
 
