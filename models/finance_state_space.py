@@ -11,7 +11,6 @@ Transition dynamics and observation likelihoods for particle filtering.
 """
 
 import numpy as np
-import tensorflow as tf
 import logging
 
 logging.basicConfig(level=logging.INFO)

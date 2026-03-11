@@ -3,3 +3,6 @@ tensorflow-probability>=0.18.0
 numpy
 matplotlib
 scipy
+pandas
+pytest
+tqdm
