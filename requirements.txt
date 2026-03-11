@@ -1,5 +1,5 @@
 tensorflow>=2.10.0
-tensorflow-probability>=0.18.0
+tensorflow-probability[tf]
 numpy
 matplotlib
 scipy
