@@ -3,7 +3,7 @@
 🌐 [Interactive Portfolio](https://meamresh.github.io/latent-liquidity.html) • 📊 [Research Visualizations](results/) • 📄 [Notebook Analysis](notebooks/)
 
 <p align="center">
-  <img src="results/vanguard_risk_evolution.gif" width="700">
+  <img src="results/vanguard_risk_evolution.gif" width="400">
 </p>
 
 This repository implements a non-linear State-Space Model (SSM) and an advanced Bayesian filtering framework to infer latent liquidity stress ($L_t$) and quantify systemic risk transitions in global financial markets.
